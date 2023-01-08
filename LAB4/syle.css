@@ -1,0 +1,9 @@
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+.note {
+    background: antiquewhite;
+}
