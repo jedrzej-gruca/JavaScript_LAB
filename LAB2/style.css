@@ -1,22 +1,143 @@
-#slider {
-    width: 600px;
-    height: 400px;
-    margin: 100px auto 0 auto;
-    overflow: hidden;
-}
-#slider .slides {
-    display: flex;
-    animation-name: pociag-w-lewo;
-    animation-duration: 4s;
-    animation-delay: 1s;
-    animation-timing-function: ease-in-out;
+*{
+    margin: 0;
+    box-sizing: border-box;
 }
 
-@keyframes pociag-w-lewo {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-2000px);
-    }
+.outerSlider{
+    position: relative;
+}
+
+.slider{
+    padding: 0;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.slider::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.slide{
+    position: relative;
+    float: left;
+    display: none;
+    width: 100%;
+    margin-right: -100%;
+}
+
+.activeSlide,
+.prevPosition,
+.nextPosition{
+    display: block;
+}
+
+.prevPosition{
+    left: -100%;
+}
+
+.nextPosition{
+    left: 100%;
+}
+
+.prevSlide{
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+}
+
+.nextSlide{
+    transform: translateX(-100%);
+    transition: transform .5s ease-in-out;
+}
+
+/* fade effect */
+.sliderFade .prevPosition,
+.sliderFade .nextPosition{
+    left: 0;
+    opacity: 0;
+}
+
+.sliderFade .prevSlide,
+.sliderFade .nextSlide{
+    transform: none;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+.sliderFade .activeSlide.prevSlide,
+.sliderFade .activeSlide.nextSlide{
+    opacity: 0;
+}
+
+.image{
+    display: block;
+    width: 100%;
+}
+
+.carousel_caption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 4rem;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.dots{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    z-index: 1;
+}
+
+.dot{
+    display: block;
+    background-color: lightsalmon;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transition: background-color .5s ease-in-out;
+}
+
+.activeDot{
+    background-color: red;
+    pointer-events: none;
+}
+
+.sliderIndicator{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.button{
+    display: block;
+    font-size: 2rem;
+    background-color: transparent;
+    color: lightsalmon;
+    border: none;
+    cursor: pointer;
+    transition: color .25s;
+    z-index: 1;
+}
+
+.button:hover{
+    color: red;
 }

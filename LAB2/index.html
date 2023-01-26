@@ -1,27 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LAB2_Slider</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="slider">
-        <div class="slides">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
-        	<img src="http://picsum.photos/seed/picsum/600/400" alt="">
+
+<div class="outerSlider">
+    <div class="slider">
+        <div class="slide activeSlide">
+            <img src="https://images.wallpaperscraft.com/image/single/stars_space_galaxy_118131_800x600.jpg" alt="" class="image">
+        </div>
+        <div class="slide">
+            <img src="https://images.wallpaperscraft.com/image/single/stars_galaxy_glow_369541_800x600.jpg" alt="" class="image">
+        </div>
+        <div class="slide">
+            <img src="https://images.wallpaperscraft.com/image/single/stars_space_galaxy_117958_800x600.jpg" alt="" class="image">
         </div>
     </div>
-    <main>
-    </main>
-    <script src="main.js"></script>
+
+    <div class="dots">
+        <button class="dot activeDot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+    </div>
+
+    <div class="sliderIndicator">
+        <button class="button prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="button next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+<script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>
+
