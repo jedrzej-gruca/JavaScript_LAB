@@ -4,22 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio src="./sounds/boom.wav" controls id="s1"></audio>
-    <audio src="./sounds/clap.wav" controls id="s2"></audio>
-    <audio src="./sounds/hihat.wav" controls id="s3"></audio>
-    <audio src="./sounds/kick.wav" controls id="s4"></audio>
-    <audio src="./sounds/openhat.wav" controls id="s5"></audio>
-    <audio src="./sounds/ride.wav" controls id="s6"></audio>
-    <audio src="./sounds/snare.wav" controls id="s7"></audio>
-    <audio src="./sounds/tink.wav" controls id="s8"></audio>
-    <audio src="./sounds/tom.wav" controls id="s9"></audio>
+    <table class = soundNames>
+        <tr>
+            <th>A - Boom</th>
+            <th>S - Clap</th>
+            <th>D - HiHat</th>
+            <th>F - Kick</th>
+            <th>G - OpenHat</th>
+        </tr>
+        <tr>
+            <th>Z - Ride</th>
+            <th>X - Snare</th>
+            <th>C - Tink</th>
+            <th>V - Tom</th>
+        </tr>
+    </table>
+    <div class="sound">
+        <audio src="./sounds/boom.wav" controls id="boom"></audio>
+        <audio src="./sounds/clap.wav" controls id="clap"></audio>
+        <audio src="./sounds/hihat.wav" controls id="hihat"></audio>
+        <audio src="./sounds/kick.wav" controls id="kick"></audio>
+        <audio src="./sounds/openhat.wav" controls id="openhat"></audio>
+        <audio src="./sounds/ride.wav" controls id="ride"></audio>
+        <audio src="./sounds/snare.wav" controls id="snare"></audio>
+        <audio src="./sounds/tink.wav" controls id="tink"></audio>
+        <audio src="./sounds/tom.wav" controls id="tom"></audio>
+    </div>
+    <div class="buttons">
+        <div class="button">
+            <button id="recButton" >Record</button>
+            <button id="playButton">Play selected channel</button>
+            <button id="playAllButton">Play all</button>
+            <button id="clearButton">Clear</button>
+        </div>
+        <div class="button">
+            <button id="channel1" >kanał 1</button>
+            <button id="channel2">kanał 2</button>
+            <button id="channel3">kanał 3</button>
+            <button id="channel4">kanał 4</button>
+        </div>
+    </div>
 
-    <audio controls id="r1">REC_1</audio>
-    <audio controls id="r2">REC_2</audio>
-    <audio controls id="r3">REC_3</audio>
-    <audio controls id="r4">REC_4</audio>
-    <script src="drumkit.js"></script>
+    <script src="drumkit.js" type="text/javascript"></script>
 </body> 
 </html>
