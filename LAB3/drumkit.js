@@ -1,126 +1,226 @@
-// notatnik 
-// document.addEventListener('keypress', onKeyPress)
+document.addEventListener('keypress', onSoundKeyPress);
+document.querySelector('#play1Button').addEventListener('click', onPlayChannel1ButtonClick);
+document.querySelector('#play2Button').addEventListener('click', onPlayChannel2ButtonClick);
+document.querySelector('#play3Button').addEventListener('click', onPlayChannel3ButtonClick);
+document.querySelector('#play4Button').addEventListener('click', onPlayChannel4ButtonClick);
+document.querySelector('#playAllButton').addEventListener('click',onPlayAllButtonClick);
+// document.querySelector('#recButton').addEventListener('click', onRecButtonClick);
+document.querySelector('#recOnChannel1').addEventListener('click',onRecOnChannel1ButtonClick);
+document.querySelector('#recOnChannel2').addEventListener('click',onRecOnChannel2ButtonClick);
+document.querySelector('#recOnChannel3').addEventListener('click',onRecOnChannel3ButtonClick);
+document.querySelector('#recOnChannel4').addEventListener('click',onRecOnChannel4ButtonClick);
+// document.querySelector('#channel1').addEventListener('click',switchChannelTo1);
+// document.querySelector('#channel2').addEventListener('click',switchChannelTo2);
+// document.querySelector('#channel3').addEventListener('click',switchChannelTo3);
+// document.querySelector('#channel4').addEventListener('click',switchChannelTo4);
 
-const { timeStamp } = require("console")
 
-//=====================  ZAJECIA  ======================
-document.addEventListener('keypress', onSoundKeyPress)
+//tabs with recorded sounds
+const recordedSound1 = [];
+const recordedSound2 = [];
+const recordedSound3 = [];
+const recordedSound4 = [];
+let recStartTime;
 
+let selectedChannel = 1;
+
+function onRecOnChannel1ButtonClick() {
+    selectedChannel = 1;
+    recordedSound1.length = 0;
+    recStartTime = Date.now();
+}
+
+function onRecOnChannel2ButtonClick() {
+    selectedChannel = 2;
+    recordedSound2.length = 0;
+    recStartTime = Date.now();
+}
+
+function onRecOnChannel3ButtonClick() {
+    selectedChannel = 3;
+    recordedSound3.length = 0;
+    recStartTime = Date.now();
+}
+
+function onRecOnChannel4ButtonClick() {
+    selectedChannel = 4;
+    recordedSound4.length = 0;
+    recStartTime = Date.now();
+}
+
+//key table
 const KeyToSound = {
-    'a' : document.querySelector('#s1'),
-    's' : document.querySelector('#s2'),
-    'd' : document.querySelector('#s3'),
-    'f' : document.querySelector('#s4'),
-    'g' : document.querySelector('#s5'),
-    'z' : document.querySelector('#s6'),
-    'x' : document.querySelector('#s7'),
-    'c' : document.querySelector('#s8'),
-    'v' : document.querySelector('#s9')
+    'a' : document.querySelector('#boom'),
+    's' : document.querySelector('#clap'),
+    'd' : document.querySelector('#hihat'),
+    'f' : document.querySelector('#kick'),
+    'g' : document.querySelector('#openhat'),
+    'z' : document.querySelector('#ride'),
+    'x' : document.querySelector('#snare'),
+    'c' : document.querySelector('#tink'),
+    'v' : document.querySelector('#tom')
 }
 
 function onSoundKeyPress(event) {
-    const sound = KeyToSound[event.key]
-    playSound(sound)
+    let sound = KeyToSound[event.key];
+    if (sound) {
+        const soundTime = Date.now() - recStartTime;
+        const soundObj = {
+            id: sound,
+            time: soundTime
+        };
+        switch(selectedChannel) {
+            case 1:
+                recordedSound1.push(soundObj);
+                playSound(sound);
+                console.log('pushed to 1');
+                break;
+            case 2:
+                recordedSound2.push(soundObj);
+                playSound(sound);
+                console.log('pushed to 2');
+                break;
+            case 3:
+                recordedSound3.push(soundObj);
+                playSound(sound);
+                console.log('pushed to 3');
+                break;
+            case 4:
+                recordedSound4.push(soundObj);
+                playSound(sound);
+                console.log('pushed to 4');
+                break;
+        }
+        console.log(selectedChannel);
+    }
 }
 
 function playSound(sound) {
-    sound.currentTime = 0
-    sound.play()
-}
-
-// ==========  REC ===========
-
-document.addEventListener('keydown', onRecKeyPress)
-
-const KeyToRec = {
-    '1' : document.querySelector('#r1'),
-    '2' : document.querySelector('#r2'),
-    '3' : document.querySelector('#r3'),
-    '4' : document.querySelector('#r4')
-}
-
-function onRecKeyPress(event) {
-    const rec = KeyToRec[event.key]
-    recordSound(rec)
-}
-
-let recordedSound1 = []
-let recordedSound2 = []
-let recordedSound3 = []
-let recordedSound4 = []
-
-let recordedTimeStamps1 = []
-let recordedTimeStamps2 = []
-let recordedTimeStamps3 = []
-let recordedTimeStamps4 = []
-
-function recordSound(rec) {
-    switch (rec) {
-        case '1':
-            while(onRecKeyPress == true) {
-                recordedSound1.push(key)
-                recordedTimeStamps1.push(onSoundKeyPress.timeStamp)
-            }
-        case '2':
-            while(onRecKeyPress == true) {
-                recordedSound2.push(key)
-                recordedTimeStamps2.push(onSoundKeyPress.timeStamp)
-            }
-        case '3':
-            while(onRecKeyPress == true) {
-                recordedSound3.push(key)
-                recordedTimeStamps3.push(onSoundKeyPress.timeStamp)
-            }
-        case '4':
-            while(onRecKeyPress == true) {
-                recordedSound4.push(key)
-                recordedTimeStamps4.push(onSoundKeyPress.timeStamp)
-            }
+    if (!sound) {
+        return;
     }
-    
+    const pressedKey = sound;
+    pressedKey.currentTime = 0;
+    pressedKey.play();
 }
 
-function playRecordedSound() {
-    array.forEach(element => {
-        
-    });
-}
-
-
-
-
-////////////////////////////////////////////////////////////////////
-
-// const KeyToSound = {
-//     'a': 's1',
-//     's': 's2',
-// }
-// function onKeyPress(ev) {
-//     // const key = event.key
-//     // logika mapowania key -> sound
-//     const sound = KeyToSound[ev.key]
-//     // switch (ev.key) {
-//     //     case 'a':
-//     //         sound = SOUND.clap
-//     //         // clap
-//     //         break;
-//     //     case 's':
-//     //         sound = SOUND.hihat
-//     //         // hihat
-//     //         break;
-//     // }
-//     playSound(sound)
+// function onRecButtonClick() {
+//     recStartTime = Date.now();
 // }
 
-// function playSound(sound) {
-//     if (!sound) {
-//         return
+// function onPlayButtonClick() {
+//     let recordedSounds = [];
+//     recordedSounds.length = 0;
+//     switch(selectedChannel){
+//         case 1:
+//             recordedSounds = recordedSound1;
+//             break;
+//         case 2:
+//             recordedSounds = recordedSound2;
+//             break;
+//         case 3:
+//             recordedSounds = recordedSound3;
+//             break;
+//         case 4:
+//             recordedSounds = recordedSound4;
+//             break;
 //     }
-//     const audioTag = document.querySelector(`#${clap}`)
-//     audioTag.currentTime = 0
-//     audioTag.play()
+//     for (let i = 0; i < recordedSounds.length; i++) {
+//         const soundObj = recordedSounds[i];
+//         setTimeout(
+//             () => {
+//                 playSound(soundObj.id);
+//             },
+//             soundObj.time
+//         );
+//     }
 // }
-// Date.now()
 
-//Zapisywanie w tablicy oraz timestamp
-//forEach + setTimeOut
+function onPlayChannel1ButtonClick() {
+    for (let i = 0; i < recordedSound1.length; i++) {
+        const soundObj = recordedSound1[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        );
+    }
+}
+
+function onPlayChannel2ButtonClick() {
+    for (let i = 0; i < recordedSound2.length; i++) {
+        const soundObj = recordedSound2[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        );
+    }
+}
+
+function onPlayChannel3ButtonClick() {
+    for (let i = 0; i < recordedSound3.length; i++) {
+        const soundObj = recordedSound3[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        );
+    }
+}
+
+function onPlayChannel4ButtonClick() {
+    for (let i = 0; i < recordedSound4.length; i++) {
+        const soundObj = recordedSound4[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        );
+    }
+}
+
+function onPlayAllButtonClick(){
+    for (let i = 0; i < recordedSound1.length; i++) {
+        const soundObj = recordedSound1[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        )
+    }
+    for (let i = 0; i < recordedSound2.length; i++) {
+        const soundObj = recordedSound2[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        )
+
+    }
+    for (let i = 0; i < recordedSound3.length; i++) {
+        const soundObj = recordedSound3[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        )
+
+    }
+    for (let i = 0; i < recordedSound4.length; i++) {
+        const soundObj = recordedSound4[i];
+        setTimeout(
+            () => {
+                playSound(soundObj.id);
+            },
+            soundObj.time
+        )
+    }
+}

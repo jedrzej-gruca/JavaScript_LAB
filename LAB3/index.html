@@ -22,7 +22,7 @@
             <th>V - Tom</th>
         </tr>
     </table>
-    <div class="sound">
+    <div class="sound" style="display: none">
         <audio src="./sounds/boom.wav" controls id="boom"></audio>
         <audio src="./sounds/clap.wav" controls id="clap"></audio>
         <audio src="./sounds/hihat.wav" controls id="hihat"></audio>
@@ -34,17 +34,20 @@
         <audio src="./sounds/tom.wav" controls id="tom"></audio>
     </div>
     <div class="buttons">
+        <h2>Choose channel to record:</h2>
         <div class="button">
-            <button id="recButton" >Record</button>
-            <button id="playButton">Play selected channel</button>
-            <button id="playAllButton">Play all</button>
-            <button id="clearButton">Clear</button>
+            <button id="recOnChannel1" >Rec on Channel 1</button>
+            <button id="recOnChannel2" >Rec on Channel 2</button>
+            <button id="recOnChannel3" >Rec on Channel 3</button>
+            <button id="recOnChannel4" >Rec on Channel 4</button>
         </div>
+        <h2>Choose channel to play:</h2>
         <div class="button">
-            <button id="channel1" >kanał 1</button>
-            <button id="channel2">kanał 2</button>
-            <button id="channel3">kanał 3</button>
-            <button id="channel4">kanał 4</button>
+            <button id="play1Button">Play Channel 1</button>
+            <button id="play2Button">Play Channel 2</button>
+            <button id="play3Button">Play Channel 3</button>
+            <button id="play4Button">Play Channel 4</button>
+            <button id="playAllButton">Play all</button>
         </div>
     </div>
 
