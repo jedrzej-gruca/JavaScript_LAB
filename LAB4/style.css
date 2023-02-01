@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3,30vw);
+    justify-content: center;
+    align-content: center;
+    grid-gap: 10px;
+}
+
+.all {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+}
+
+.inputs {
+    display: block;
+    width: 50%;
+    margin: 10px;
+    border-radius: 2px;
+    border: 1px solid #bbbbbb;
+}
+
+.titleall {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.contentall {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.colorall {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.buttonsall {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+button {
+    display: flex;
+    background-color: #efefef;
+    border: 1px solid #bbbbbb;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #3d3d3d;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    outline: none;
+    padding: 3px 10px;
+    margin: 5px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 12px;
+    flex-direction:column;
+    border-radius: 7px;
+    font-family: Georgia, serif;
+}
+
+p {
+    font-family: Georgia, serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+h4 {
+    font-size: 12px;
+    font-family: Georgia, serif;
+}
+
+#contDiv {
+    display: flex;
+}
