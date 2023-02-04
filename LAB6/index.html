@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Canvas</title>
+</head>
+<body>
+<div>
+    <div class="canvasInput">
+        <label for="canvWidth">
+            Canvas width:
+        </label>
+        <input type="number" id="canvWidth" value="400">
+        <label for="canvHeight">
+            Canvas height:
+        </label>
+        <input type="number" id="canvHeight" value="400">
+        <label for="ballsNumber">
+            Balls:
+        </label>
+        <input type="number" id="ballsNumber" value="7">
+        <label for="distance">
+            Distance:
+        </label>
+        <input type="number" id="distance" value="100">
+    </div>
+    <div class="buttons">
+        <button id="startButton">Start</button>
+        <button id="resetButton">Reset</button>
+    </div>
+</div>
+<script src="balls.js" type="module"></script>
+</body>
+</html>

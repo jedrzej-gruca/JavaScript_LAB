@@ -1,0 +1,32 @@
+div {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    width: 120px;
+}
+
+label {
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+}
+
+button {
+    width: 120px;
+}
+
+.canvasInput {
+    display: flex;
+    flex-direction: column;
+    /*width: 120px;*/
+}
+
+.canvas {
+    border: 3px solid;
+    margin: 30px;
+}
